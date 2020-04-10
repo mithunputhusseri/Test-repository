@@ -4,8 +4,9 @@ pipeline {
         maven 'Maven 3.6.0'
         jdk 'jdk8'
     }
-    stages {
-        stage ('Initialize') {
+
+    stages{
+            stage ('Initialize') {
             steps {
                 sh '''
                     echo "PATH = ${PATH}"
@@ -13,7 +14,6 @@ pipeline {
                 '''
             }
         }
-    stages{
         stage('Maven compile'){
             steps{
               sh 'mvn compile'
