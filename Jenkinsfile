@@ -1,8 +1,6 @@
 pipeline {
     agent any
-    tools {
-    maven 'M3'
-  }
+
 
     stages{
             stage ('Initialize') {
@@ -12,6 +10,10 @@ pipeline {
                     echo "M2_HOME = ${M2_HOME}"
                 '''
             }
+            stage('com'){
+    def mvnHome = tool name: 'Apache Maven 3.6.0', type: 'maven'
+    sh "${mvnHome}/bin/mvn -B -DskipTests clean package"
+  }
         }
         stage('Maven compile'){
             steps{
