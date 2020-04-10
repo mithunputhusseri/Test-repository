@@ -3,9 +3,7 @@ pipeline {
 
 
     stages{
- 
-  }
-        
+      
         stage('Maven compile'){
             steps{
                def mvnHome = tool name: 'Apache Maven 3.6.0', type: 'maven'
